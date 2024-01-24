@@ -19,8 +19,8 @@ startBtn.addEventListener("click", () => {
     }
 
     const options = { enableHighAccuracy: true }
-    watchID = navigator.geolocation.watchPosition(handleSucess, handleError)
     currentRide = createNewRide()
+    watchID = navigator.geolocation.watchPosition(handleSucess, handleError)
     startBtn.classList.add("d-none")
     stopBtn.classList.remove("d-none")
 })
@@ -31,6 +31,7 @@ stopBtn.addEventListener("click", () => {
     navigator.geolocation.clearWatch(watchID)
     watchID = null
     updateStopTime(currentRide)
+    currentRide = null
     startBtn.classList.remove("d-none")
     stopBtn.classList.add("d-none")
 
